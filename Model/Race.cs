@@ -9,15 +9,17 @@ public class Race {
     private List<Horse> horses;
 
     public Race(String name, DateTime startDate) {
+        Name = name;
+        StartDate = startDate;
+        horses = new List<Horse>();
         id++;
-        this.name = name;
-        this.startDate = startDate;
     }
 
     public Race(DateTime startDate) {
-        this.name = "Race " + id;
-        id++;
+        Name = "Race " + id;
         StartDate = startDate;
+        horses = new List<Horse>();
+        id++;
     }
 
     public String Name {
@@ -48,11 +50,13 @@ public class Race {
     public List<Horse> Horses {
         get => horses;
         set {
-            if (value == null) {
-                throw new ArgumentException("Horses cannot be null.");
-            }
+            ArgumentNullException.ThrowIfNull(value);
             horses = value;
         }
+    }
+
+    public void AddHorse(Horse horse) {
+        horses.Add(horse);
     }
 
 }
