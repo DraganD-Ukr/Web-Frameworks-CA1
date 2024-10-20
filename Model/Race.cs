@@ -1,8 +1,8 @@
-﻿namespace CA1;
+﻿namespace CA1.Model;
 
 public class Race {
 
-    public static int id = 0;
+    private static int id = 0;
     
     private String name;
     private DateTime startDate;
@@ -16,12 +16,23 @@ public class Race {
 
     public Race(DateTime startDate) {
         this.name = "Race " + id;
+        id++;
         StartDate = startDate;
     }
 
     public String Name {
-        get => name;
-        set => name = value;
+        get {
+            return name;
+        }
+        set {
+            if (string.IsNullOrWhiteSpace(value)) {
+                throw new ArgumentException("Race name cannot be null or empty.");
+            }
+            if (value.Length < 2) {
+                throw new ArgumentException("Race name must be at least 2 characters long.");
+            }
+            name = value;
+        }
     }
 
     public DateTime StartDate {
@@ -36,7 +47,12 @@ public class Race {
 
     public List<Horse> Horses {
         get => horses;
-        set => horses = value;
+        set {
+            if (value == null) {
+                throw new ArgumentException("Horses cannot be null.");
+            }
+            horses = value;
+        }
     }
 
 }
