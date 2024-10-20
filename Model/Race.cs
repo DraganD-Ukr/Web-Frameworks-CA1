@@ -40,7 +40,7 @@ public class Race : IRace{
     public DateTime StartDate {
         get => startTime;
         set {
-            if (startTime.CompareTo(DateTime.Now) <= 0) {
+            if (startTime.CompareTo(DateTime.Now) >= 0) {
                 throw new ArgumentException("Start date cannot be earlier than current date.");
             }
             startTime = value;
@@ -60,7 +60,7 @@ public class Race : IRace{
         Horses = toAdd;
     }
 
-    void IRace.AddHorse(Horse horse) {
+    public void AddHorse(Horse horse) {
         ArgumentNullException.ThrowIfNull(horse, "Horse cannot be null.");
         horses.Add(horse);
     }
