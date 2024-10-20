@@ -58,4 +58,10 @@ public class RaceEvent : IRaceEvent {
     public List<Race> GetAllRaces() {
         return Races.ToList();
     }
+    
+    public override string ToString(){
+        
+        return $"Race Event: {Title}\nLocation: {Location}\nRaces: {string.Join("\n", Races)}";
+        
+    }
 }

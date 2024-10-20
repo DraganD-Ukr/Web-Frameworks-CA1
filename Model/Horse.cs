@@ -1,4 +1,4 @@
-﻿namespace CA1.Model {
+﻿namespace CA1.Model;
     public class Horse {
         private static int horseIdCounter = 1;  
 
@@ -44,5 +44,8 @@
                 return horseId;  
             }
         }
+
+        public override string ToString() {
+            return $"Horse ID: {HorseId}, Name: {Name}, Date of Birth: {Date:yyyy-MM-dd}";
+        }
     }
-}

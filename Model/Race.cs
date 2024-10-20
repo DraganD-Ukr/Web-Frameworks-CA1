@@ -64,4 +64,14 @@ public class Race : IRace{
         ArgumentNullException.ThrowIfNull(horse, "Horse cannot be null.");
         horses.Add(horse);
     }
+    
+    public override string ToString(){ 
+        
+        return $"Race: {Name}, Start Time: {StartDate}, Horses: {string.Join(", ", Horses)}";
+        
+    }
+    
+    
+    
+    
 }
