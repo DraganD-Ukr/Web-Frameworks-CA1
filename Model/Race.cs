@@ -5,7 +5,7 @@ public class Race {
     private static int id = 0;
     
     private String name;
-    private DateTime startDate;
+    private DateTime startTime;
     private List<Horse> horses;
 
     public Race(String name, DateTime startDate) {
@@ -38,12 +38,12 @@ public class Race {
     }
 
     public DateTime StartDate {
-        get => startDate;
+        get => startTime;
         set {
-            if (startDate.CompareTo(DateTime.Now) <= 0) {
+            if (startTime.CompareTo(DateTime.Now) <= 0) {
                 throw new ArgumentException("Start date cannot be earlier than current date.");
             }
-            startDate = value;
+            startTime = value;
         }
     }
 

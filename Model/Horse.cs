@@ -3,7 +3,7 @@
         private static int horseIdCounter = 1;  
 
         private string name;
-        private DateTime date;
+        private DateTime dateOfBirth;
         private readonly long horseId;  
 
         public Horse(string name, DateTime date) {
@@ -29,13 +29,13 @@
 
         public DateTime Date {
             get {
-                return date;
+                return dateOfBirth;
             }
             set {
                 if (value >= DateTime.Now) {
                     throw new ArgumentException("Horse's date of birth must be in the past.");
                 }
-                date = value;  
+                dateOfBirth = value;  
             }
         }
 
