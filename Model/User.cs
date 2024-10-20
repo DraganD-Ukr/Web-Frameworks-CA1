@@ -3,7 +3,7 @@
 public abstract class User {
     public string Name { get; }
 
-    public User(string name) {
+    protected User(string name) {
         if (string.IsNullOrWhiteSpace(name)) {
             throw new ArgumentException("Name cannot be null or empty.");
         }
