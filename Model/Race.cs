@@ -1,6 +1,6 @@
 ﻿namespace CA1.Model;
 
-public class Race {
+public class Race : IRace{
 
     private static int id = 0;
     
@@ -50,13 +50,18 @@ public class Race {
     public List<Horse> Horses {
         get => horses;
         set {
-            ArgumentNullException.ThrowIfNull(value);
+            ArgumentNullException.ThrowIfNull(value, "Horses cannot be null.");
             horses = value;
         }
     }
+    
 
-    public void AddHorse(Horse horse) {
-        horses.Add(horse);
+    public void AddListOfHorses(List<Horse> toAdd) {
+        Horses = toAdd;
     }
 
+    void IRace.AddHorse(Horse horse) {
+        ArgumentNullException.ThrowIfNull(horse, "Horse cannot be null.");
+        horses.Add(horse);
+    }
 }

@@ -2,7 +2,7 @@
 
 public interface IRace {
     
-    bool AddHorse(Horse horse);
-    bool AddListOfHorses(Horse horse); 
+    void AddHorse(Horse horse);
+    void AddListOfHorses(List<Horse> toAdd); 
     
 }
