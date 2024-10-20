@@ -7,7 +7,7 @@ public interface IRaceEvent {
     
     void RemoveRaceFromEvent(Race race);
     
-    List<RaceEvent> GetAllRaceEvents();
+    List<Race> GetAllRaces();
     
     
 }

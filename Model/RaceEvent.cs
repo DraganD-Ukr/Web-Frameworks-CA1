@@ -1,6 +1,6 @@
 ﻿namespace CA1.Model;
 
-public class RaceEvent {
+public class RaceEvent : IRaceEvent {
     
     private String title;
     
@@ -43,5 +43,19 @@ public class RaceEvent {
     public List<Race> Races {
         get => races;
         set => races = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public void AddRaceToEvent(Race race) {
+        ArgumentNullException.ThrowIfNull(race);
+        races.Add(race);
+    }
+
+    public void RemoveRaceFromEvent(Race race) {
+        ArgumentNullException.ThrowIfNull(race);
+        races.Remove(race);
+    }
+
+    public List<Race> GetAllRaces() {
+        return Races.ToList();
     }
 }
